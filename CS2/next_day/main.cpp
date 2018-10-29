@@ -1,0 +1,38 @@
+#include <iostream>
+#include "next_date.h"
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    int m;
+    int d;
+    int y;
+    char s;
+
+    cout<<"Date(mm/dd/yyyy): ";
+    cin>>m>>s>>d>>s>>y;
+
+    if(valid_m_d_y(m,d,y)){
+
+    }
+    else{
+        return 0;
+    }
+
+    int new_y;
+    int new_m;
+    int t_days;
+
+    t_days=next_date_plus_1(m,d,y);
+
+    new_y=days_to_years(t_days);
+
+    y_rday_to_m(new_y,t_days,new_m);
+
+    cout<<"next date: ";
+
+    display_date(new_m,t_days,new_y);
+
+}
+

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=a\ currentSize
+comment0.target=int\ removeDuplicates(java.lang.String[],\ int)
+comment0.text=\n\ Removes\ duplicates\ from\ an\ array.\n\ @param\ a\ an\ array\ \n\ @param\ currentSize\ the\ current\ size\n\ @return\ the\ new\ size\n
+comment1.params=a\ currentSize\ start\ toBeRemoved
+comment1.target=int\ removeFromTail(java.lang.String[],\ int,\ int,\ java.lang.String)
+comment1.text=\n\ Removes\ duplicates\ of\ a\ given\ value\ from\ the\ tail\ of\ an\ array\n\ @param\ a\ an\ array\n\ @param\ currentSize\ the\ current\ size\n\ @param\ start\ the\ first\ position\ of\ the\ tail\n\ @param\ toBeRemoved\ the\ value\ to\ be\ removed\n\ @return\ the\ number\ of\ elements\ removed\n
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+numComments=3

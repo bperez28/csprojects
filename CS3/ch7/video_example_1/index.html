@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <title>Big Java Late Objects Video</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+  <link href="../Slidy2/styles/slidy.css" rel="stylesheet" type="text/css" />
+  <link href="../styles.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8"
+  src="../Slidy2/scripts/slidy.js">
+  </script>
+  <script type="text/javascript">
+     w3c_slidy.mouse_click_enabled = false
+  </script>
+</head>
+
+<body>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Big Java Late Objects <br />
+Video <br />
+<img src="../bjlo.jpg" alt="." /> </div>
+</div>
+</div>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Computing a Document's Readability <br />
+<img src="hard-to-read.png" alt="." /> </div>
+</div>
+</div>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Understand the Problem </div>
+</div>
+</div>
+
+<div class="slide">
+<ul>
+  <li>Count all sentences in the file. Count all words, and all syllables in
+    the words.</li>
+  <li>Index = 206.835 - 84.6 x (Syllables/Words) - 1.05 x (Words/Sentences)</li>
+  <li>Gives an indication of the difficulty: 
+    <pre>Comics                95
+Consumer ads          82
+Sports Illustrated    65
+Time                  57
+New York Times        39
+Auto insurance policy 10
+Internal Revenue Code  6</pre>
+  </li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Algorithmic Questions</h1>
+<ul>
+  <li>What is a word?
+    <ul>
+      <li>Any sequence of characters delimited by white space</li>
+    </ul>
+  </li>
+  <li>What is a sentence?
+    <ul>
+      <li>A sentence is ended by a period, colon, semicolon, question mark, or
+        exclamation mark.</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Algorithmic Questions</h1>
+<ul>
+  <li>How can we count syllables?
+    <ul>
+      <li>Syllable = group of adjacent vowels (a, e, i, o, u, y)<br />
+        r<strong>ea</strong>l &mdash; 1 syllable,
+        r<strong>e</strong>g<strong>a</strong>l&mdash;2 syllables</li>
+      <li>An e at the end of a word doesn't count. <br />
+        rat<strong>e</strong>&mdash;1 syllable</li>
+      <li>Each word has at least one syllable, even if the previous rules give
+        a count of 0.<br />
+        th<strong>e</strong>&mdash;1 syllable</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>User Interface Questions</h1>
+<ul>
+  <li>How is the input file specified?
+    <ul>
+      <li>On the command line</li>
+      <li>If none is specified, prompt the user in the console window.</li>
+    </ul>
+  </li>
+  <li>What is the output format?
+    <pre>Words: xxx
+Syllables: xxx
+Sentences: xxx
+Index: xxx</pre>
+  </li>
+</ul>
+</div>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Stepwise Refinement </div>
+</div>
+</div>
+
+<div class="slide">
+
+<div class="marker">
+<pre>If no command line argument
+  Prompt user for file name
+Construct a scanner from the file
+(If file doesn't exist, exit.)
+Keep counters sentences, words, syllables
+For each word in the input
+  words++
+  Count syllables in word and add to syllables counter (how?)
+  If word ends in . : ; ? !
+    sentences++
+Compute and display index  </pre>
+</div>
+</div>
+
+<div class="slide">
+
+<div class="marker">
+<pre><b>Count syllables in word</b>
+count = 0
+InsideVowelGroup = false
+For each character 
+  If the character is a vowel
+    If not insideVowelGroup
+      count++
+      insideVowelGroup = true
+  Else
+    insideVowelGroup = false
+If word ends in e, count--
+If count == 0, count = 1</pre>
+</div>
+</div>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Design Test Cases </div>
+</div>
+</div>
+
+<div class="slide">
+<ul>
+  <li>Make a file consisting of
+    <ul>
+      <li>Words ending in . : ; ? !</li>
+      <li>Words not ending in . : ; ? !</li>
+      <li>Words with syllables consisting of single and multiple letters</li>
+      <li>A word ending in e with one other vowel</li>
+      <li>A word ending in e with no other vowel</li>
+    </ul>
+    <pre>Try the veal? Venison, pigeon: I like them too!
+Eat for free; do dishes.</pre>
+  </li>
+</ul>
+</div>
+
+<div class="slide">
+<ul>
+  <li>Compute the answer by hand
+    <ul>
+      <li>14 words, 5 sentences</li>
+      <li>18 syllables (1+1+1+3+2+1+1+1+1+1+1+1+1+2)</li>
+      <li>206.835 - (84.6 * (18 / 14)) - (1.015 * (14 / 5)) = 95.221571</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Write the Program </div>
+</div>
+</div>
+
+<div class="slide">
+
+<div class="title">
+
+<div class="cell">
+Test the Program </div>
+</div>
+</div>
+</body>
+</html>

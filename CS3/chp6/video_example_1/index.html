@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <title>Big Java Late Objects Video</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+  <link href="../Slidy2/styles/slidy.css" rel="stylesheet" type="text/css" />
+  <link href="../styles.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" charset="utf-8"
+          src="../Slidy2/scripts/slidy.js">
+  </script>
+  <script type="text/javascript">
+     w3c_slidy.mouse_click_enabled = false
+  </script>
+
+</head>
+
+<body>
+
+<div class="slide"><div class="title"><div class="cell">
+Big Java Late Objects
+<br/>
+Video
+<br/>
+<img src="../bjlo.jpg"/>
+</div></div></div>
+<div class="slide"><div class="title"><div class="cell">
+Removing Duplicates from an Array
+<br/>
+<img src="nodupes.jpg"/>
+</div></div></div>
+<div class="slide"><div class="title"><div class="cell">
+Understand the Problem
+</div></div></div>
+<div class="slide">
+<ul>
+<li>Given: A sequence of items with repetitions</li>
+<li>Example: Email addresses</li>
+<li>Goal: Remove all duplicates</li>
+<li>Don't change the order of the other items</li>
+</ul>
+</div>
+<div class="slide"><div class="title"><div class="cell">
+Simulate by Hand 
+</div></div></div>
+
+<div class="slide"><div class="title"><div class="cell">
+Design an Algorithm
+</div></div></div>
+<div class="slide marker">
+<div class="marker">
+<pre>
+<b>Remove all duplicates</b>
+start = 0
+while start < currentSize
+   remove a[start] from a[start+1]...a[currentSize - 1]
+   Update currentSize
+   start++
+</pre>
+</div>
+</div>
+<div class="slide marker">
+<div class="marker">
+<pre>
+<b>Remove from tail (a, currentSize, start, toBeRemoved)</b>
+source = start
+target = start
+removed = 0
+while source < currentSize
+   if a[source] equals toBeRemoved
+     removed++
+   else
+     a[target] = a[source]
+     target++
+   source++
+return removed
+</pre>
+</div>
+</div>
+<div class="slide"><div class="title"><div class="cell">
+Develop Test Cases
+</div></div></div>
+
+<div class="slide"><div class="title"><div class="cell">
+Write the Program
+</div></div></div>
+
+<div class="slide"><div class="title"><div class="cell">
+Test the Program
+</div></div></div>
+
+</body>
+</html>
