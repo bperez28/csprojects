@@ -1,27 +1,110 @@
-Microsoft (R) Macro Assembler Version 14.00.23506.0	    08/15/16 21:41:34
-..\ch03\AddTwo.asm					     Page 1 - 1
+Microsoft (R) Macro Assembler Version 14.16.27027.1	    04/24/19 14:06:47
+SumArray.asm						     Page 1 - 1
 
 
-				; AddTwo.asm - adds two 32-bit integers.
-				; Chapter 3 example
+				; Summing an Array (SumArray.asm)
+
+				; This program sums an array of words.
 
 				.386
 				.model flat,stdcall
 				.stack 4096
-				ExitProcess proto,dwExitCode:dword
+				ExitProcess PROTO, dwExitCode:dword
+
+				;.data
+				;intarray DWORD 10000h,20000h,30000h,40000h
+ 00000000			.data
+
+ 00000000 80 66 A5 7B		myBytes BYTE 80h,66h,0A5h,7Bh
+
+ 00000004 80 66 A5 7B		mySBytes SBYTE 80h,66h,0A5h,7Bh
 
  00000000			.code
  00000000			main proc
- 00000000  B8 00000005			mov	eax,5				
- 00000005  83 C0 06			add	eax,6				
+
+				;unsigned
+				;using al--------------------------------
+					;mov  edi,OFFSET myBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF myBytes		; 2: initialize loop counter
+					;mov  al,0						; 3: sum = 0
+				;L1:									; 4: mark beginning of loop
+					;add  al,[edi]					; 5: add an integer
+					;add  edi,TYPE myBytes   		; 6: point to next element
+					;loop L1							; 7: repeat until ECX = 0
+				;using ah--------------------------------
+					;mov  edi,OFFSET myBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF myBytes		; 2: initialize loop counter
+					;mov  ah,0						; 3: sum = 0
+				;L1:									; 4: mark beginning of loop
+					;add  ah,[edi]					; 5: add an integer
+					;add  edi,TYPE myBytes   		; 6: point to next element
+					;loop L1							; 7: repeat until ECX = 0
+				;using ax--------------------------------
+					;mov  edi,OFFSET myBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF myBytes		; 2: initialize loop counter
+					;mov  ax,0						; 3: sum = 0
+				;L1:									; 4: mark beginning of loop
+					;add  ax,[edi]					; 5: add an integer
+					;add  edi,TYPE myBytes   		; 6: point to next element
+					;loop L1							; 7: repeat until ECX = 0
+				;using eax-----------------------------
+					;mov  edi,OFFSET myBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF myBytes		; 2: initialize loop counter
+					;mov  eax,0						; 3: sum = 0
+				;L1:									; 4: mark beginning of loop
+					;add  eax,[edi]					; 5: add an integer
+					;add  edi,TYPE myBytes   		; 6: point to next element
+					;loop L1							; 7: repeat until ECX = 0
+
+				;signed============================================================
+
+				;using al	
+					;mov  edi,OFFSET mySBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF mySBytes		; 2: initialize loop counter
+					;mov  al,0						; 3: sum = 0
+
+				;L1:									; 4: mark beginning of loop
+					;add  al,[edi]					; 5: add an integer
+					;add  edi,TYPE mySBytes   		; 6: point to next element
+					;loop L1	
+
+				;using ah------------------------------	
+ 00000000  BF 00000004 R		mov  edi,OFFSET mySBytes		; 1: EDI = address of intarray
+ 00000005  B9 00000004			mov  ecx,LENGTHOF mySBytes		; 2: initialize loop counter
+ 0000000A  B4 00			mov  ah,0						; 3: sum = 0
+
+ 0000000C			L1:									; 4: mark beginning of loop
+ 0000000C  02 27			add  ah,[edi]					; 5: add an integer
+ 0000000E  83 C7 01			add  edi,TYPE mySBytes   		; 6: point to next element
+ 00000011  E2 F9			loop L1	
+
+				;using ax-------------------------------	
+					;mov  edi,OFFSET mySBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF mySBytes		; 2: initialize loop counter
+					;mov  ax,0						; 3: sum = 0
+
+				;L1:									; 4: mark beginning of loop
+					;add  ax,[edi]					; 5: add an integer
+					;add  edi,TYPE mySBytes   		; 6: point to next element
+					;loop L1	
+
+				;using eax-------------------------------	
+					;mov  edi,OFFSET mySBytes		; 1: EDI = address of intarray
+					;mov  ecx,LENGTHOF mySBytes		; 2: initialize loop counter
+					;mov  eax,0						; 3: sum = 0
+
+				;L1:									; 4: mark beginning of loop
+					;add  eax,[edi]					; 5: add an integer
+					;add  edi,TYPE mySBytes   		; 6: point to next element
+					;loop L1							; 7: repeat until ECX = 0
 
 					invoke ExitProcess,0
- 00000008  6A 00	   *	    push   +000000000h
- 0000000A  E8 00000000 E   *	    call   ExitProcess
- 0000000F			main endp
+ 00000013  6A 00	   *	    push   +000000000h
+ 00000015  E8 00000000 E   *	    call   ExitProcess
+ 0000001A			main endp
 				end main
-Microsoft (R) Macro Assembler Version 14.00.23506.0	    08/15/16 21:41:34
-..\ch03\AddTwo.asm					     Symbols 2 - 1
+Microsoft (R) Macro Assembler Version 14.16.27027.1	    04/24/19 14:06:47
+SumArray.asm						     Symbols 2 - 1
 
 
 
@@ -32,8 +115,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 DWord	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 0000000F DWord	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000008 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000001A DWord	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -41,7 +124,8 @@ Procedures, parameters, and locals:
                 N a m e                 Type     Value    Attr
 
 ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000000F Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000001A Public STDCALL
+  L1 . . . . . . . . . . . . . .	L Near	 0000000C _TEXT	
 
 
 Symbols:
@@ -57,6 +141,8 @@ Symbols:
 @fardata?  . . . . . . . . . . .	Text   	 FLAT
 @fardata . . . . . . . . . . . .	Text   	 FLAT
 @stack . . . . . . . . . . . . .	Text   	 FLAT
+myBytes  . . . . . . . . . . . .	Byte	 00000000 _DATA	
+mySBytes . . . . . . . . . . . .	Byte	 00000004 _DATA	
 
 	   0 Warnings
 	   0 Errors
