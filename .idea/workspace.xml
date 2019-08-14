@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="06bcb660-75d4-4c7f-b2c9-d34de0491b3f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CS66/LAB3/Project3/convert_b_h_d.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CS66/LAB_4/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CS66/LAB_4/LAB_4.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CS66/LAB_4/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2/Bin2dec/Bin2dec.pro.user" beforeDir="false" afterPath="$PROJECT_DIR$/CS2/Bin2dec/Bin2dec.pro.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS8/BTrees/BTrees.pro.user" beforeDir="false" afterPath="$PROJECT_DIR$/CS8/BTrees/BTrees.pro.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS8/BTrees/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CS8/BTrees/main.cpp" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1PGBfuWe9aCdKqfq2iMEvs6q2on" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06bcb660-75d4-4c7f-b2c9-d34de0491b3f" name="Default Changelist" comment="" />
+      <created>1565490659455</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565490659455</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
